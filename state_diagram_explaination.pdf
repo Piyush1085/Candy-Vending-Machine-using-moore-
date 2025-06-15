@@ -1,0 +1,40 @@
+This state diagram represents a Moore Finite State Machine (FSM) for a Candy Vending Machine that accepts ₹5 and ₹10 coins.
+
+🧾 States and Meanings
+Each state represents the total money inserted so far:
+--------------------------------------
+State|Label	|        Meaning         |
+--------------------------------------
+s0	 |₹0    |	    No money inserted  |
+s5	 |₹5    |	    ₹5 inserted        |
+s10	 |₹10   |	   ₹10 inserted        |
+s15	 |₹15   |	   Candy dispensed     |
+s20	 |₹20   |	   Candy dispensed     |
+--------------------------------------
+
+🔁 Transitions Based on Input Coins
+From s0:
+₹5 → s5
+₹10 → s10
+₹0 → Remain in s0 (invalid or no input)
+
+From s5:
+₹5 → s10
+₹10 → s15 → 🍬 Candy dispensed
+
+From s10:
+₹5 → s15 → 🍬 Candy
+₹10 → s20 → 🍬 Candy
+
+From s15:
+Automatically resets to s0 after dispensing candy
+
+From s20:
+Automatically resets to s0 after dispensing candy
+
+If ₹5 is inserted again before reset, it may lead to undefined behavior unless restricted
+
+🍬 Candy Dispense Logic
+Candy is only dispensed in states s15 and s20.
+This is a Moore machine, so output (candy) is tied only to the current state, not input.
+
