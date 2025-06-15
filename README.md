@@ -8,7 +8,7 @@ This project implements a **Candy Vending Machine** using a **Moore Finite State
 
 The vending machine is modeled using a **Moore FSM**, meaning the output (`candy`) depends only on the current state, not the inputs. The machine progresses through a series of states representing the total money inserted, and when it reaches ₹15 or ₹20, it dispenses a candy.
 
-## 🧠 FSM Design
+##  FSM Design
 
 The machine has the following states:
 
@@ -25,12 +25,12 @@ The coin input is 4-bit wide and accepts:
 - `rupee5` = `0101` (decimal 5)
 - `rupee10` = `1010` (decimal 10)
 
-### 🎯 Candy Dispense Condition
+###  Candy Dispense Condition
 
 - Candy is dispensed when the machine reaches **state `s15` or `s20`**.
 - Once candy is dispensed, the machine returns to the initial state (`s0`) to start a new cycle.
 
-## 💡 Verilog Module Description
+##  Verilog Module Description
 
 ### Inputs:
 
@@ -73,7 +73,7 @@ As this is a Moore machine, the output depends only on the current state:
 verilog
 `assign candy = (present_state == s15 || present_state == s20) ? 1'b1 : 1'b0;`
 
-🚀 Why This Project is Important
+ Why This Project is Important
 
 - Teaches Finite State Machine (FSM) design in hardware
 - Demonstrates Moore vs Mealy machine concepts
